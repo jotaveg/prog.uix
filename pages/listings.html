@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Busca - Mercado de Serviços</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="listings.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="../index.html" class="logo">
+                    <h1>Mercado de Serviços</h1>
+                </a>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li><a href="#" class="nav__link">Categorias</a></li>
+                        <li><a href="#" class="nav__link">Como Funciona</a></li>
+                        <li><a href="#" class="nav__link">Sobre</a></li>
+                    </ul>
+                </nav>
+                <div class="header__actions">
+                    <a href="login.html" class="btn btn--secondary">Login</a>
+                    <a href="register.html" class="btn btn--primary">Registrar</a>
+                </div>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <ul class="mobile-nav__list">
+            <li><a href="#" class="mobile-nav__link">Categorias</a></li>
+            <li><a href="#" class="mobile-nav__link">Como Funciona</a></li>
+            <li><a href="#" class="mobile-nav__link">Sobre</a></li>
+            <li><a href="login.html" class="mobile-nav__link">Login</a></li>
+            <li><a href="register.html" class="mobile-nav__link">Registrar</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="listing-main">
+        <div class="container listing-container">
+            <!-- Sidebar Filters -->
+            <aside class="filters-sidebar">
+                <div class="filters-header">
+                    <h3>Filtros</h3>
+                    <button class="filters-reset" id="resetFilters">Limpar</button>
+                </div>
+
+                <!-- Category Filter -->
+                <div class="filter-group">
+                    <h4 class="filter-group__title">Categoria</h4>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="plumbing" checked>
+                            <span>Encanador (248)</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="electrical">
+                            <span>Eletricista (189)</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="cleaning">
+                            <span>Limpeza (512)</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="painting">
+                            <span>Pintura (178)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Price Filter -->
+                <div class="filter-group">
+                    <h4 class="filter-group__title">Preço (R$/hora)</h4>
+                    <div class="price-range">
+                        <div class="price-inputs">
+                            <input type="number" id="priceMin" placeholder="Mín" min="0" value="0">
+                            <span>-</span>
+                            <input type="number" id="priceMax" placeholder="Máx" min="0" value="500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rating Filter -->
+                <div class="filter-group">
+                    <h4 class="filter-group__title">Avaliação</h4>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="rating" value="5">
+                            <span>★★★★★ 5 estrelas</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="rating" value="4" checked>
+                            <span>★★★★☆ 4+ estrelas</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="rating" value="3">
+                            <span>★★★☆☆ 3+ estrelas</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Availability Filter -->
+                <div class="filter-group">
+                    <h4 class="filter-group__title">Disponibilidade</h4>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="availability" value="today">
+                            <span>Hoje</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="availability" value="week" checked>
+                            <span>Esta semana</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="availability" value="month">
+                            <span>Este mês</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Apply Button -->
+                <button class="btn btn--primary btn--full" id="applyFilters">
+                    Aplicar Filtros
+                </button>
+            </aside>
+
+            <!-- Listings Content -->
+            <section class="listings-content">
+                <!-- Search Header -->
+                <div class="listings-header">
+                    <div class="listings-info">
+                        <h2>Encanadores Disponíveis</h2>
+                        <p class="listings-count">Mostrando <strong>24</strong> resultados</p>
+                    </div>
+                    <div class="listings-sort">
+                        <label for="sortBy">Ordenar por:</label>
+                        <select id="sortBy">
+                            <option value="relevance">Relevância</option>
+                            <option value="rating">Melhor avaliados</option>
+                            <option value="price-low">Menor preço</option>
+                            <option value="price-high">Maior preço</option>
+                            <option value="newest">Mais novos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Listings Grid -->
+                <div class="listings-grid">
+                    <!-- Listing Card 1 -->
+                    <div class="listing-card">
+                        <div class="listing-card__header">
+                            <div class="listing-card__avatar">
+                                <div class="placeholder-avatar">JC</div>
+                            </div>
+                            <div class="listing-card__info">
+                                <h3 class="listing-card__name">João Carlos</h3>
+                                <p class="listing-card__service">Encanador Profissional</p>
+                            </div>
+                            <button class="btn btn--ghost">♡</button>
+                        </div>
+
+                        <div class="listing-card__body">
+                            <div class="listing-card__meta">
+                                <span class="meta-item">
+                                    <span class="rating-stars">★★★★★</span>
+                                    <span class="rating-count">(128)</span>
+                                </span>
+                                <span class="meta-item">📍 São Paulo, SP</span>
+                            </div>
+                            <p class="listing-card__description">
+                                Especialista em encanamento residencial e comercial com 15 anos de experiência.
+                            </p>
+                            <div class="listing-card__tags">
+                                <span class="tag">Hidráulica</span>
+                                <span class="tag">Vazamentos</span>
+                                <span class="tag">Instalação</span>
+                            </div>
+                        </div>
+
+                        <div class="listing-card__footer">
+                            <div class="listing-card__price">
+                                <span class="price-label">A partir de</span>
+                                <p class="price-amount">R$ 80,00/hora</p>
+                            </div>
+                            <a href="profile.html" class="btn btn--primary">Contratar</a>
+                        </div>
+                    </div>
+
+                    <!-- Listing Card 2 -->
+                    <div class="listing-card">
+                        <div class="listing-card__header">
+                            <div class="listing-card__avatar">
+                                <div class="placeholder-avatar">MP</div>
+                            </div>
+                            <div class="listing-card__info">
+                                <h3 class="listing-card__name">Maria Paula</h3>
+                                <p class="listing-card__service">Eletricista Certificada</p>
+                            </div>
+                            <button class="btn btn--ghost">♡</button>
+                        </div>
+
+                        <div class="listing-card__body">
+                            <div class="listing-card__meta">
+                                <span class="meta-item">
+                                    <span class="rating-stars">★★★★★</span>
+                                    <span class="rating-count">(95)</span>
+                                </span>
+                                <span class="meta-item">📍 São Paulo, SP</span>
+                            </div>
+                            <p class="listing-card__description">
+                                Eletricista com certificação CREA. Atendo residências, comércios e indústrias.
+                            </p>
+                            <div class="listing-card__tags">
+                                <span class="tag">Elétrica</span>
+                                <span class="tag">Manutenção</span>
+                                <span class="tag">Reparos</span>
+                            </div>
+                        </div>
+
+                        <div class="listing-card__footer">
+                            <div class="listing-card__price">
+                                <span class="price-label">A partir de</span>
+                                <p class="price-amount">R$ 120,00/hora</p>
+                            </div>
+                            <a href="profile.html" class="btn btn--primary">Contratar</a>
+                        </div>
+                    </div>
+
+                    <!-- Listing Card 3 -->
+                    <div class="listing-card">
+                        <div class="listing-card__header">
+                            <div class="listing-card__avatar">
+                                <div class="placeholder-avatar">AS</div>
+                            </div>
+                            <div class="listing-card__info">
+                                <h3 class="listing-card__name">Ana Silva</h3>
+                                <p class="listing-card__service">Encanadora Especializada</p>
+                            </div>
+                            <button class="btn btn--ghost">♡</button>
+                        </div>
+
+                        <div class="listing-card__body">
+                            <div class="listing-card__meta">
+                                <span class="meta-item">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">(76)</span>
+                                </span>
+                                <span class="meta-item">📍 São Paulo, SP</span>
+                            </div>
+                            <p class="listing-card__description">
+                                Atendo encanamento em geral, desde manutenção até reformas completas.
+                            </p>
+                            <div class="listing-card__tags">
+                                <span class="tag">Encanamento</span>
+                                <span class="tag">Reparos</span>
+                                <span class="tag">Reforma</span>
+                            </div>
+                        </div>
+
+                        <div class="listing-card__footer">
+                            <div class="listing-card__price">
+                                <span class="price-label">A partir de</span>
+                                <p class="price-amount">R$ 65,00/hora</p>
+                            </div>
+                            <a href="profile.html" class="btn btn--primary">Contratar</a>
+                        </div>
+                    </div>
+
+                    <!-- Listing Card 4 -->
+                    <div class="listing-card">
+                        <div class="listing-card__header">
+                            <div class="listing-card__avatar">
+                                <div class="placeholder-avatar">RG</div>
+                            </div>
+                            <div class="listing-card__info">
+                                <h3 class="listing-card__name">Roberto Gomes</h3>
+                                <p class="listing-card__service">Encanador com Experiência</p>
+                            </div>
+                            <button class="btn btn--ghost">♡</button>
+                        </div>
+
+                        <div class="listing-card__body">
+                            <div class="listing-card__meta">
+                                <span class="meta-item">
+                                    <span class="rating-stars">★★★★★</span>
+                                    <span class="rating-count">(203)</span>
+                                </span>
+                                <span class="meta-item">📍 São Paulo, SP</span>
+                            </div>
+                            <p class="listing-card__description">
+                                Mais de 20 anos de experiência em hidráulica. Trabalho garantido!
+                            </p>
+                            <div class="listing-card__tags">
+                                <span class="tag">Encanamento</span>
+                                <span class="tag">Hidráulica</span>
+                                <span class="tag">Urgência</span>
+                            </div>
+                        </div>
+
+                        <div class="listing-card__footer">
+                            <div class="listing-card__price">
+                                <span class="price-label">A partir de</span>
+                                <p class="price-amount">R$ 90,00/hora</p>
+                            </div>
+                            <a href="profile.html" class="btn btn--primary">Contratar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="btn btn--secondary">← Anterior</button>
+                    <span class="pagination-info">Página 1 de 5</span>
+                    <button class="btn btn--secondary">Próxima →</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__section">
+                    <h4 class="footer__title">Sobre</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Carreiras</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Suporte</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Legal</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Termos de Serviço</a></li>
+                        <li><a href="#">Privacidade</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 Mercado de Serviços. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="listings.js"></script>
+</body>
+</html>
