@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="FREELAS - Mensagens" />
+    <title>FREELAS - Mensagens</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body class="app-shell" data-role="freelancer">
+    <div class="ambient ambient-left" aria-hidden="true"></div>
+    <div class="ambient ambient-right" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="../" aria-label="FREELAS home">
+        <span class="brand-mark">F</span>
+        <span>
+          <strong>FREELAS</strong>
+          <small>Mercado mock em duas faces</small>
+        </span>
+      </a>
+
+      <div class="topbar-actions">
+        <div class="role-pills" role="tablist" aria-label="Trocar experiência">
+          <button class="pill" type="button" id="switch-client">Face do cliente</button>
+          <button class="pill active" type="button" id="switch-freelancer">Face do freelancer</button>
+        </div>
+        <div class="session-badge">
+          <span class="dot"></span>
+          Apenas mock de interface
+        </div>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <section class="freelancer-experience">
+        <div class="workspace-layout">
+          <aside class="workspace-sidebar surface-panel" aria-label="Navegação da área de trabalho">
+            <div>
+              <p class="eyebrow">Área de trabalho</p>
+              <h2>Gerencie o dia</h2>
+            </div>
+
+            <nav class="workspace-nav" id="workspace-nav">
+              <button class="nav-item" type="button" data-workspace-view="dashboard">Painel</button>
+              <button class="nav-item" type="button" data-workspace-view="services">Meus serviços</button>
+              <button class="nav-item" type="button" data-workspace-view="activities">Atividades</button>
+              <button class="nav-item active" type="button" data-workspace-view="messages">Mensagens</button>
+            </nav>
+
+            <div class="sidebar-summary">
+              <strong>Pulso de hoje</strong>
+              <span>3 novos pedidos, 2 mensagens não lidas e 1 avaliação aguardando resposta.</span>
+            </div>
+          </aside>
+
+          <div class="workspace-main">
+            <div class="workspace-header surface-panel">
+              <div>
+                <p class="eyebrow">Face do freelancer</p>
+                <h2 id="workspace-title">Mensagens</h2>
+              </div>
+              <div class="workspace-switcher" role="tablist" aria-label="Visões da área de trabalho">
+                <button class="pill" type="button" data-workspace-view="dashboard">Painel</button>
+                <button class="pill" type="button" data-workspace-view="services">Serviços</button>
+                <button class="pill" type="button" data-workspace-view="activities">Atividades</button>
+                <button class="pill active" type="button" data-workspace-view="messages">Mensagens</button>
+              </div>
+            </div>
+
+            <div id="workspace-content"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="./freelancer-common.js"></script>
+    <script src="./messages.js"></script>
+  </body>
+</html>

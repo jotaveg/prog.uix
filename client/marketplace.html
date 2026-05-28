@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="FREELAS - Mercado de profissionais" />
+    <title>FREELAS - Mercado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body class="app-shell" data-role="client">
+    <div class="ambient ambient-left" aria-hidden="true"></div>
+    <div class="ambient ambient-right" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="../" aria-label="FREELAS home">
+        <span class="brand-mark">F</span>
+        <span>
+          <strong>FREELAS</strong>
+          <small>Mercado mock em duas faces</small>
+        </span>
+      </a>
+
+      <div class="topbar-actions">
+        <div class="role-pills" role="tablist" aria-label="Trocar experiência">
+          <button class="pill active" type="button" id="switch-client">Face do cliente</button>
+          <button class="pill" type="button" id="switch-freelancer">Face do freelancer</button>
+        </div>
+        <div class="session-badge">
+          <span class="dot"></span>
+          Apenas mock de interface
+        </div>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <section class="client-experience">
+        <div class="client-toolbar surface-panel">
+          <div>
+            <p class="eyebrow">Mercado</p>
+            <h2>Encontre o profissional certo</h2>
+          </div>
+
+          <div class="toolbar-actions">
+            <label class="searchbar">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <path d="m20 20-3.5-3.5"></path>
+                </svg>
+              </span>
+              <input id="client-search" type="search" placeholder="Buscar por nome, habilidade ou cidade" />
+            </label>
+
+            <button class="cta secondary filters-button" type="button" id="open-filters">Filtros</button>
+          </div>
+        </div>
+
+        <div class="client-layout">
+          <aside class="filter-sidebar surface-panel" aria-label="Filtros do mercado">
+            <div class="sidebar-title">
+              <h3>Filtros</h3>
+              <button class="text-button" type="button" id="reset-filters">Redefinir</button>
+            </div>
+
+            <div class="filter-group">
+              <h4>Categoria</h4>
+              <label><input type="radio" name="category" value="all" checked /> Todas</label>
+              <label><input type="radio" name="category" value="design" /> Design</label>
+              <label><input type="radio" name="category" value="development" /> Desenvolvimento</label>
+              <label><input type="radio" name="category" value="marketing" /> Marketing</label>
+              <label><input type="radio" name="category" value="writing" /> Redação</label>
+            </div>
+
+            <div class="filter-group">
+              <h4>Nota mínima</h4>
+              <input id="rating-range" type="range" min="3" max="5" step="0.5" value="4" />
+              <div class="range-labels">
+                <span>3.0</span>
+                <span id="rating-value">4.0+</span>
+                <span>5.0</span>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h4>Orçamento</h4>
+              <label><input type="checkbox" name="budget" value="starter" checked /> Inicial</label>
+              <label><input type="checkbox" name="budget" value="growth" checked /> Crescimento</label>
+              <label><input type="checkbox" name="budget" value="premium" checked /> Premium</label>
+            </div>
+          </aside>
+
+          <div class="client-results">
+            <div class="results-meta surface-panel">
+              <div>
+                <strong id="results-count">0 profissionais</strong>
+                <p id="results-summary">Refine sua busca para comparar talentos rapidamente.</p>
+              </div>
+
+              <label class="sorter">
+                <span>Ordenar por</span>
+                <select id="client-sort">
+                  <option value="recommended">Recomendados</option>
+                  <option value="rating">Maior nota</option>
+                  <option value="price">Menor preço</option>
+                  <option value="response">Resposta mais rápida</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="active-chips" id="active-client-filters" aria-live="polite"></div>
+            <div class="professional-grid" id="professional-grid"></div>
+          </div>
+
+          <aside class="spotlight surface-panel" id="professional-spotlight" aria-live="polite"></aside>
+        </div>
+      </section>
+    </main>
+
+    <div class="drawer" id="filter-drawer" hidden>
+      <div class="drawer-backdrop" id="close-filters-backdrop"></div>
+      <div class="drawer-panel surface-panel" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+        <div class="drawer-head">
+          <h3 id="drawer-title">Filtros do mercado</h3>
+          <button class="icon-button" type="button" id="close-filters" aria-label="Fechar filtros">✕</button>
+        </div>
+        <div id="mobile-filter-copy"></div>
+      </div>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="./client.js"></script>
+  </body>
+</html>
